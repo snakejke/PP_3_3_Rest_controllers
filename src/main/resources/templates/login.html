@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+  <title>Login page</title>
+  <style>
+    .login-form {
+      width: 340px;
+      margin: 50px auto;
+      font-size: 15px;
+    }
+    .login-form h3 {
+      font-weight: bold;
+      margin: 0 0 15px;
+    }
+    .form-control, .btn {
+      min-height: 38px;
+      border-radius: 2px;
+    }
+    .btn {
+      font-size: 15px;
+      font-weight: bold;
+      width: 340px;
+      margin: 4px auto;
+    }
+  </style>
+</head>
+<body>
+<div class="login-form">
+  <form class="form" autocomplete="on">
+  <h3>Please sign in</h3>
+    <input type="text" class="form-control" th:name="email" placeholder="Email address" autofocus autocomplete="username"/>
+    <input type="password" class="form-control" th:name="password" placeholder="Password" autocomplete="current-password"/>
+    <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+<div th:if="${param.error}">
+    <p style="color: red;">Invalid username or password</p>
+  </div>
+</form>
+</div>
+<script type="text/javascript" th:src="@{/js/bootstrap.bundle.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/logIN.js}"></script>
+</body>
+</html>
