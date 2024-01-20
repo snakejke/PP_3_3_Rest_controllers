@@ -7,7 +7,6 @@ import java.util.List;
 import javax.persistence.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
 @Entity
 @Table(name = "users")
 public class User implements UserDetails {
@@ -34,8 +33,8 @@ public class User implements UserDetails {
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "users_roles",
-            joinColumns = {@JoinColumn(name = "USER_ID", referencedColumnName = "ID")},
-            inverseJoinColumns = {@JoinColumn(name = "ROLE_ID", referencedColumnName = "ID")})
+            joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "role_id", referencedColumnName = "id")})
 
     private List<Role> roles = new ArrayList<>();
 

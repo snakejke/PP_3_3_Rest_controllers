@@ -11,12 +11,12 @@ INSERT INTO users (firstName, lastName, email, age) VALUES ('Michael', 'Brown', 
 INSERT INTO `roles` (`name`) VALUES ('USER');
 INSERT INTO `roles` (`name`) VALUES ('ADMIN');
 
-INSERT INTO `users_roles` (`USER_ID`, `ROLE_ID`) VALUES (1, 1);
-INSERT INTO `users_roles` (`USER_ID`, `ROLE_ID`) VALUES (2, 1),(2, 2);
-INSERT INTO `users_roles` (`USER_ID`, `ROLE_ID`) VALUES (3, 1);
-INSERT INTO `users_roles` (`USER_ID`, `ROLE_ID`) VALUES (4, 1);
-INSERT INTO `users_roles` (`USER_ID`, `ROLE_ID`) VALUES (5, 1);
-INSERT INTO `users_roles` (`USER_ID`, `ROLE_ID`) VALUES (6, 1);
-INSERT INTO `users_roles` (`USER_ID`, `ROLE_ID`) VALUES (7, 1);
+INSERT INTO `users_roles` (`user_id`, `role_id`) VALUES (1, 1);
+INSERT INTO `users_roles` (`user_id`, `role_id`) VALUES (2, 1),(2, 2);
+INSERT INTO `users_roles` (`user_id`, `role_id`) VALUES (3, 1);
+INSERT INTO `users_roles` (`user_id`, `role_id`) VALUES (4, 1);
+INSERT INTO `users_roles` (`user_id`, `role_id`) VALUES (5, 1);
+INSERT INTO `users_roles` (`user_id`, `role_id`) VALUES (6, 1);
+INSERT INTO `users_roles` (`user_id`, `role_id`) VALUES (7, 1);
 
 

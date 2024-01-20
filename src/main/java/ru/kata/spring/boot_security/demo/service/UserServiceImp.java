@@ -11,6 +11,7 @@ import ru.kata.spring.boot_security.demo.repository.RoleRepository;
 import ru.kata.spring.boot_security.demo.repository.UserRepository;
 
 @Service
+@Transactional
 public class UserServiceImp implements UserService {
 
     private final UserRepository userRepository;
@@ -39,13 +40,11 @@ public class UserServiceImp implements UserService {
     }
 
     @Override
-    @Transactional
     public void saveUser(User user) {
         userRepository.save(user);
     }
 
     @Override
-    @Transactional
     public void deleteUser(Long id) {
         userRepository.deleteById(id);
     }
