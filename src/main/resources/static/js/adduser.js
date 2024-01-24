@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('nav-adduser-form');
+  const usertableTab = document.getElementById('nav-home-tab');
 
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
@@ -16,21 +17,24 @@ document.addEventListener('DOMContentLoaded', () => {
       roles: selectedRoles.map((roleId) => ({ id: roleId })),
     };
 
-    // Отправляем запрос на сервер для создания пользователя
-    const createUserResponse = await fetch('/api/admin/users', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(jsonData),
-    });
+    try {
+      const createUserResponse = await fetch('/api/admin/users', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(jsonData),
+      });
 
-    if (createUserResponse.ok) {
-      const usersWithRoles = await fetch('/api/admin/users').then((response) => response.json());
-      console.log('User created successfully:', usersWithRoles);
-      fetchDataAndPopulateTable();
-    } else {
-      console.error('Error creating user:', createUserResponse.statusText);
+      if (createUserResponse.ok) {
+        form.reset();
+        usertableTab.click();
+        fetchDataAndPopulateTable();
+      } else {
+        console.error('Error creating user:', createUserResponse.statusText);
+      }
+    } catch (error) {
+      console.error('Error creating user:', error);
     }
   });
 });
