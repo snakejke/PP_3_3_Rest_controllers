@@ -33,8 +33,8 @@ public class User implements UserDetails {
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "users_roles",
-            joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},
-            inverseJoinColumns = {@JoinColumn(name = "role_id", referencedColumnName = "id")})
+            joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id",foreignKey = @ForeignKey(name = "none", value = ConstraintMode.NO_CONSTRAINT))},
+            inverseJoinColumns = {@JoinColumn(name = "role_id", referencedColumnName = "id",foreignKey = @ForeignKey(name = "none", value = ConstraintMode.NO_CONSTRAINT))})
 
     private List<Role> roles = new ArrayList<>();
 
